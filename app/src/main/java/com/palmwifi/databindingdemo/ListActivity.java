@@ -63,15 +63,13 @@ public class ListActivity extends Activity {
             public void onNext(final List<List<ItemBeanOrigin>> lists) {
                 runOnUiThread(() -> {
                     List<ItemBean> result = new ArrayList<>();
-                    if (result != null) {
-                        for (int i = 0; i < lists.size(); i++) {
-                            if (lists.get(i) != null) {
-                                for (int j = 0; j < lists.get(i).size(); j++) {
-                                    if (lists.get(i).get(j) != null) {
-                                        ItemBean itemBean = new ItemBean();
-                                        itemBean.setItemOrigin(lists.get(i).get(j));
-                                        result.add(itemBean);
-                                    }
+                    if (lists != null) {
+                        for (List<ItemBeanOrigin> listOn : lists) {
+                            if (listOn != null) {
+                                for (ItemBeanOrigin item : listOn) {
+                                    ItemBean itemBean = new ItemBean();
+                                    itemBean.setItemOrigin(item);
+                                    result.add(itemBean);
                                 }
                             }
                         }

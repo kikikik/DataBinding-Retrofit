@@ -33,7 +33,6 @@ public class ListAdapter extends BaseQuickAdapter<ItemBean, BaseViewHolder> {
 
     @Override
     protected void convert(BaseViewHolder helper, ItemBean item) {
-        Log.e("test", item.getVcname() + "," + item.getVcimgurl());
         binding.setVariable(com.palmwifi.databindingdemo.BR.itemBean, item);
         helper.setText(R.id.origin, item.getVcorigin());
         ImageView imageView = helper.getView(R.id.img);
